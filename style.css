@@ -1,0 +1,291 @@
+
+body {
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  background-color: #000000; /* Pure black background */
+  color: #e0e0e0; /* Light text color for contrast */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  min-height: 100vh;
+}
+
+/* History Bar */
+.history-bar {
+  width: 250px; /* Width of the history bar */
+  background-color: black; /* Dark background */
+  box-shadow: 2px 0 5px rgba(255, 255, 255, 0.454); /* Shadow for depth */
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(-100%); /* Hide by default */
+}
+
+.history-bar.active {
+  transform: translateX(0); /* Show when active */
+}
+
+.menu-icon {
+  margin-left: 230px;
+  font-size: 24px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.history-content {
+  display: none; /* Hidden by default */
+}
+
+.history-content h3 {
+  color: #1151da; /* Blue heading */
+  margin-bottom: 10px;
+}
+
+#chat-history {
+  list-style: none;
+  padding: 0;
+}
+
+#chat-history li {
+  margin-bottom: 10px;
+  color: #b0b0b0; /* Light gray text */
+  cursor: pointer;
+}
+
+#chat-history li:hover {
+  color: #1151da; /* Blue on hover */
+}
+
+/* Main Container */
+.container {
+  flex: 1;
+  max-width: 1200px; /* Increased width */
+  width: 90%; /* Responsive width */
+  margin: 20px;
+  padding: 30px;
+  background-color: #1a1a1a; /* Slightly lighter black for container */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+  border-radius: 12px; /* Rounded corners */
+  transition: all 0.3s ease-in-out;
+}
+
+.container:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6); /* Hover effect for container */
+}
+
+h1 {
+  text-align: center;
+  color: #1151da; /* Bold and attractive dark blue for heading */
+  font-size: 3em; /* Larger font size */
+  margin-bottom: 20px;
+  letter-spacing: 2px; /* Increased letter spacing */
+  font-family: 'Montserrat', sans-serif; /* Unique font for Qavi.AI */
+  font-weight: 700; /* Bold font weight */
+  text-transform: uppercase; /* Uppercase text */
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #b0b0b0; /* Slightly lighter text for better readability */
+}
+
+/* Input Section */
+.input-section {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  padding: 15px;
+  font-size: 18px;
+  color: #e0e0e0;
+  background-color: #2a2a2a; /* Darker textarea background */
+  border: 1px solid #444; /* Slightly lighter border */
+  border-radius: 10px;
+  resize: vertical;
+  min-height: 120px;
+  transition: border-color 0.3s ease-in-out;
+  margin-bottom: 15px;
+}
+
+textarea:focus {
+  border-color: #1151da; /* Bold dark blue border on focus */
+  outline: none;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+ height: auto;
+  padding: 12px 30px; /* Increased padding for wider button */
+  font-size: 18px;
+  border: none;
+  background-color: #1151da; /* Bold dark blue button */
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+  flex: 1; /* Make button take up available space */
+}
+
+button:hover {
+  background-color: #0025cc; /* Slightly darker blue on hover */
+  transform: scale(1.05); /* Button grows slightly on hover */
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 8px #1151da; /* Focus effect with bold dark blue */
+}
+
+.clear-button, .mic-button {
+  padding: 12px 20px; /* Smaller padding for Clear and Mic buttons */
+  flex: none; /* Do not allow these buttons to grow */
+  width: auto; /* Auto width for smaller buttons */
+}
+
+.clear-button {
+  background-color: #ff4444; /* Red color for clear button */
+}
+
+.clear-button:hover {
+  background-color: #cc0000; /* Darker red on hover */
+}
+
+.mic-button {
+  background-color: #1151da; /* Bold dark blue color for mic button */
+}
+
+.mic-button:hover {
+  background-color: #0025cc; /* Slightly darker blue on hover */
+}
+
+.mic-icon {
+  font-size: 18px;
+}
+
+/* Output Section */
+.output-section {
+  margin-top: 30px;
+  padding: 25px;
+  background-color: #2a2a2a; /* Darker background for output section */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  position: relative; /* For loading animation positioning */
+  min-height: 150px; /* Ensure output box has enough height */
+}
+
+#chat-output {
+  font-size: 18px;
+  color: #e0e0e0;
+  font-style: italic;
+  white-space: pre-wrap; /* Preserve line breaks and wrap text */
+  word-wrap: break-word; /* Break long words if necessary */
+  overflow-wrap: break-word; /* Ensure text wraps within the container */
+  max-width: 100%; /* Ensure text doesn't overflow the container */
+  font-family: 'Poppins', sans-serif; /* Monospace font for output */
+  line-height: 1.6; /* Improve readability */
+  overflow: auto; /* Add scrollbar if content overflows */
+}
+
+/* Individual Chat Message */
+.chat-message {
+  margin-bottom: 20px; /* Space between chat messages */
+  padding: 10px;
+  background-color: #333; /* Dark background for each message */
+  border-radius: 8px;
+  word-break: break-word; /* Break words if they overflow */
+}
+
+/* Loading Animation Inside Result Box */
+#loading {
+  display: none; /* Hidden by default */
+  position: absolute; /* Position inside output box */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Center the spinner */
+  text-align: center;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-top: 4px solid #1151da; /* Bold dark blue spinner */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Message */
+#error {
+  display: none; /* Hidden by default */
+  color: #ff4444; /* Red color for error message */
+  margin-top: 1rem;
+}
+
+.error-message {
+  font-weight: bold;
+}
+
+
+.speaker-button {
+  background-color: #1151da; /* Dark blue */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.speaker-button:hover {
+  background-color: #0025cc; /* Darker blue */
+}
+
+
+.upload-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.upload-section input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.upload-section button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.upload-section button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
+.upload-section input[type="file"] {
+  font-size: 14px; /* Smaller font size */
+  padding: 5px; /* Reduce padding */
+  width: auto; /* Adjust width to fit content */
+  height: 20px; /* Make it smaller */
+}     
