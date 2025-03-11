@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Syed Qavi Uddin</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+</head>
+<body>
+
+  <div class="container">
+    <div class="history-bar">
+      <div class="menu-icon" onclick="toggleHistory()">☰</div>
+      <div class="history-content">
+        <h3>Chat History</h3>
+        <ul id="chat-history"></ul>
+      </div>
+    </div>
+
+    <h1>Qavi.AI</h1>
+    <p>Type a prompt or use the microphone...</p>
+
+    <div class="input-section">
+      <textarea id="prompt" placeholder="Enter your prompt here..." aria-label="Enter a prompt"></textarea>
+      <div class="button-group">
+        <button onclick="generateLimerick()">Generate</button>
+        <button onclick="startVoiceInput()" class="mic-button">🎤</button>
+        <button onclick="clearInput()" class="clear-button">Clear</button>
+      </div>
+    </div>
+
+    <div class="upload-section">
+      <input type="file" id="image-upload" accept="image/*">
+      <button onclick="uploadImage()">Upload & Analyze</button>
+    </div>
+
+    <div id="error" style="display: none;">
+      <p class="error-message">An error occurred. Please try again.</p>
+    </div>
+
+    <div class="output-section">
+      <button class="speaker-button" onclick="speakText()">🔊 Read Aloud</button>
+      <h2>Generated Information:</h2>
+      <div id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Generating information...</p>
+      </div>
+      <div id="chat-output"></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</body>
+</html>
