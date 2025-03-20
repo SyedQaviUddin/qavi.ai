@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 
-DEEPSEEK_API_KEY = '"
+DEEPSEEK_API_KEY = "sk-c28b1a7a500e410588b6f88b4e3744b3"
 DEEPSEEK_API_URL = "https://api.deepseek.com/v1/chat/completions"  
 
 def generate_limerick_deepseek(prompt):
